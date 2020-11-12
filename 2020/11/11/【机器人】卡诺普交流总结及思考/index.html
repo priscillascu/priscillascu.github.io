@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://priscilla.github.io">
-  <title>Tag: 杂七杂八 | loveccbb</title>
+  <title>【机器人】卡诺普交流总结及思考 | loveccbb</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="loveccbb">
-<meta property="og:url" content="http://priscilla.github.io/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/index.html">
+  <meta name="description" content="1.前言11月10日，我们又去了卡诺普自动化公司，针对工业机器人当前遇到的问题，以及一些工程实践问题进行了交流，在这里进行总结，以及写一下我对这些问题以及我们当前项目的思考。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【机器人】卡诺普交流总结及思考">
+<meta property="og:url" content="http://priscilla.github.io/2020/11/11/%E3%80%90%E6%9C%BA%E5%99%A8%E4%BA%BA%E3%80%91%E5%8D%A1%E8%AF%BA%E6%99%AE%E4%BA%A4%E6%B5%81%E6%80%BB%E7%BB%93%E5%8F%8A%E6%80%9D%E8%80%83/index.html">
 <meta property="og:site_name" content="loveccbb">
+<meta property="og:description" content="1.前言11月10日，我们又去了卡诺普自动化公司，针对工业机器人当前遇到的问题，以及一些工程实践问题进行了交流，在这里进行总结，以及写一下我对这些问题以及我们当前项目的思考。">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-11-11T15:56:38.000Z">
+<meta property="article:modified_time" content="2020-11-12T13:23:25.340Z">
 <meta property="article:author" content="YangHaixin">
+<meta property="article:tag" content="机器人">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="loveccbb" type="application/atom+xml">
@@ -162,60 +167,160 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-【机器人】卡诺普交流总结及思考" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/11/07/%E3%80%90%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E3%80%91Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" class="archive-article-date">
-  	<time datetime="2020-11-07T15:29:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-07</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/11/07/%E3%80%90%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E3%80%91Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">Hexo搭建流程记录</a>
+    <h1 class="article-title" itemprop="name">
+      【机器人】卡诺普交流总结及思考
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/11/11/%E3%80%90%E6%9C%BA%E5%99%A8%E4%BA%BA%E3%80%91%E5%8D%A1%E8%AF%BA%E6%99%AE%E4%BA%A4%E6%B5%81%E6%80%BB%E7%BB%93%E5%8F%8A%E6%80%9D%E8%80%83/" class="archive-article-date">
+  	<time datetime="2020-11-11T15:56:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1.前言"></a>1.前言</h2><p>11月10日，我们又去了卡诺普自动化公司，针对工业机器人当前遇到的问题，以及一些工程实践问题进行了交流，在这里进行总结，以及写一下我对这些问题以及我们当前项目的思考。<a id="more"></a></p>
+<h2 id="2-问题"><a href="#2-问题" class="headerlink" title="2.问题"></a>2.问题</h2><p>我们主要针对工业机器人轨迹精度进行了交流，业内也越来越关注轨迹精度这个问题。</p>
+<ul>
+<li>六轴同步问题。因为电机摩擦、动态性能不同，以及驱动里面的控制器都是分开的，所以会导致在启动阶段，各轴电机运动不同步，这也验证了我们测量到的现象，在启动阶段抖动较大；</li>
+<li>控制算法还是围绕着线性化来做，PID永远的神，这样虽然控制结构简单，但是无法完成高精度任务；</li>
+<li>控制器采样速率不够，基本上都是用来做轨迹规划，一些大厂的控制器可能有动力学补偿功能；</li>
+<li>驱动器采样速率很快，故控制算法都在驱动器中实现，卡诺普现在还是传统三环PID；</li>
+</ul>
+<h2 id="3-思考"><a href="#3-思考" class="headerlink" title="3.思考"></a>3.思考</h2><p>针对这些工业上的问题，以及实验室环境，我想了一些研究方向。</p>
+<ul>
+<li>能否将我之前的SimScape机械臂模型拓展一下，建立更加完善的PMSM关节模型；</li>
+<li>在PMSM关节模型的基础上，仿照卡诺普的控制结构，建立三环PID模型，进行仿真，观察现象是否与实物一致；</li>
+<li>改进PMSM驱动，在驱动里实现非线性控制算法。</li>
+</ul>
+<h2 id="4-总结"><a href="#4-总结" class="headerlink" title="4.总结"></a>4.总结</h2><p>目前只想到了这些，简单记录了一下，接下来就继续认真做实验、搭建仿真模型、编写我的C++机器人库。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">杂七杂八</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">机器人</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://priscilla.github.io/2020/11/11/%E3%80%90%E6%9C%BA%E5%99%A8%E4%BA%BA%E3%80%91%E5%8D%A1%E8%AF%BA%E6%99%AE%E4%BA%A4%E6%B5%81%E6%80%BB%E7%BB%93%E5%8F%8A%E6%80%9D%E8%80%83/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2020/11/07/%E3%80%90%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E3%80%91Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hexo搭建流程记录</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -238,9 +343,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,

@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://priscilla.github.io">
-  <title>Tag: 杂七杂八 | loveccbb</title>
+  <title>Hexo搭建流程记录 | loveccbb</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="loveccbb">
-<meta property="og:url" content="http://priscilla.github.io/tags/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/index.html">
+  <meta name="description" content="1.前言成功在搭建了我的Hexo个人博客，环境配置在腾讯云的Linux服务器中，这样我就可以用多台电脑同时写博客了，在这里记录一下我的搭建流程。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo搭建流程记录">
+<meta property="og:url" content="http://priscilla.github.io/2020/11/07/%E3%80%90%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E3%80%91Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/index.html">
 <meta property="og:site_name" content="loveccbb">
+<meta property="og:description" content="1.前言成功在搭建了我的Hexo个人博客，环境配置在腾讯云的Linux服务器中，这样我就可以用多台电脑同时写博客了，在这里记录一下我的搭建流程。">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-11-07T15:29:52.000Z">
+<meta property="article:modified_time" content="2020-11-09T07:30:49.655Z">
 <meta property="article:author" content="YangHaixin">
+<meta property="article:tag" content="杂七杂八">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="loveccbb" type="application/atom+xml">
@@ -162,36 +167,64 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-【杂七杂八】Hexo博客搭建" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/11/07/%E3%80%90%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E3%80%91Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" class="archive-article-date">
-  	<time datetime="2020-11-07T15:29:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-07</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/11/07/%E3%80%90%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E3%80%91Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">Hexo搭建流程记录</a>
+    <h1 class="article-title" itemprop="name">
+      Hexo搭建流程记录
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/11/07/%E3%80%90%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E3%80%91Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" class="archive-article-date">
+  	<time datetime="2020-11-07T15:29:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1.前言"></a>1.前言</h2><p>成功在搭建了我的Hexo个人博客，环境配置在腾讯云的Linux服务器中，这样我就可以用多台电脑同时写博客了，在这里记录一下我的搭建流程。<a id="more"></a></p>
+<h2 id="2-Hexo安装部署"><a href="#2-Hexo安装部署" class="headerlink" title="2.Hexo安装部署"></a>2.Hexo安装部署</h2><p>Hexo是基于Node.js安装的，所以要先安装Node.js，Node.js包含了Node.js本身，以及npm包管理器。</p>
+<p>在Linux环境中可以从taobao镜像源下载：</p>
+<p><code>wget -c https://npm.taobao.org/mirrors/node/v10.13.0/node-v10.13.0-linux-x64.tar.xz</code></p>
+<p>来获取Node.js的压缩包，然后将其解压到当前目录：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xvf node-v10.13.0-linux-x64.tar.xz</span><br></pre></td></tr></table></figure>
+
+<p>此时，还不能够使用npm，需要将刚刚解压的文件夹复制到<code>/usr/local/bin</code>路径中，就可以全局用户使用了，使用<code>node -v</code>和<code>npm -version</code>来检查是否安装好，是否可用。</p>
+<p>当然也可以参考<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/21e42cd362e7">这篇文章</a>来进行配置，讲的比较详细。</p>
+<p>然后，需要修改npm的软件源来提升下载速度，一般都是使用taobao镜像源：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry&#x3D;https:&#x2F;&#x2F;registry.npm.taobao.org  </span><br></pre></td></tr></table></figure>
+
+<p>这样就可以使用cnpm来替代npm了，这样速度会快很多。修改好了cnpm之后，就可以安装Hexo了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+
+<p>接下来就是将Hexo部署到GitHub，让别人也可以访问你的博客了。</p>
+<p>首先在Github中新建一个<code>用户昵称.github.io</code>的仓库，复制其https地址，再在新建的博客文件夹中，使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install --save hexo-deployer-git</span><br></pre></td></tr></table></figure>
+<p>安装git插件。然后修改博客文件夹中的<code>_config.yml</code>文件，在最下面的deploy项中，增加以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https:&#x2F;&#x2F;github.com&#x2F;priscillascu&#x2F;priscillascu.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+
+<p>repo是刚刚复制的仓库的https地址。</p>
+<h2 id="3-Hexo基础命令"><a href="#3-Hexo基础命令" class="headerlink" title="3.Hexo基础命令"></a>3.Hexo基础命令</h2><p>在自己的博客路径，如<code>~/blog</code>中，可以通过以下命令进行Hexo的操作：</p>
+<ul>
+<li><code>hexo init</code>：初始化一个博客；</li>
+<li><code>hexo new</code>：创建一个新的文章，会生成在/source/_posts中，hexo new “readme”，不需要加后缀名；</li>
+<li><code>hexo s</code>：本地启动Hexo，通常用于预览；</li>
+<li><code>hexo g</code>：生成博客，用于更改配置后</li>
+<li><code>hexo d</code>：部署到远端，如GitHub。</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -203,19 +236,110 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://priscilla.github.io/2020/11/07/%E3%80%90%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E3%80%91Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2020/11/11/%E3%80%90%E6%9C%BA%E5%99%A8%E4%BA%BA%E3%80%91%E5%8D%A1%E8%AF%BA%E6%99%AE%E4%BA%A4%E6%B5%81%E6%80%BB%E7%BB%93%E5%8F%8A%E6%80%9D%E8%80%83/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          【机器人】卡诺普交流总结及思考
+        
+      </div>
+    </a>
   
   
-    </div></section>
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -238,9 +362,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
